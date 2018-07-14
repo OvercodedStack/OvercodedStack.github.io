@@ -17,9 +17,11 @@ author:
   url:             
 
 paginate:         5
+gem: [jekyll-paginate, jekyll-gists]
+
 
 # Custom vars
-version:          3.7.3
+version:          2.1.0
 
 github:
   repo:            
