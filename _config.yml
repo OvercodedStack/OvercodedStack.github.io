@@ -1,7 +1,7 @@
 # Dependencies
 highlighter:      rouge
 markdown:         kramdown
-theme:            hyde
+theme:            modernist
 
 # Permalinks
 permalink:        pretty
