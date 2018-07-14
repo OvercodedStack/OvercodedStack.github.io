@@ -4,7 +4,7 @@ markdown:         kramdown
 theme:            modernist
 
 # Permalinks
-permalink:        pretty
+#permalink:        pretty
 
 # Setup
 title:            OvercodedStack
