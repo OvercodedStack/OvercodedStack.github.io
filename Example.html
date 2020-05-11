@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="Title_files/css.css" rel="stylesheet">
+    <link href="Title_files/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="Title_files/simple-line-icons.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            width: 10%;
+            font-family: "Open Sans", sans-serif;
+            background: #252525 url(https://static.pexels.com/photos/176851/pexels-photo-176851.jpeg);
+            background-size: cover;
+            height: 10%;
+            color: #fff;
+        }
+
+        .hero {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            width: 100vw;
+            max-width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .elements {
+            font-size: 800%;
+            font-weight: 100;
+            transition: 1s ease;
+            margin: 15px;
+            text-align: center;
+        }
+
+        .coloured {
+            /* background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); */
+            background-image: linear-gradient(92deg, #00faf7, #00faf7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: hue 60s infinite linear;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .element {
+            border: 4px solid #eeeeee;
+            padding: 15px 15px 10px;
+
+            display: inline-block;
+            position: relative;
+        }
+
+        .element > .number {
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            font-size: 0.3em;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 700px;
+            display: none;
+            text-align: left;
+            flex: 1;
+            margin: 15px;
+        }
+
+        .icons {
+            animation-delay: 0.2s;
+            text-align: center;
+        }
+
+        .menu-button {
+            padding: 25px 0 0 0;
+            width: 90px;
+            height: 65px;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: #eeeeee;
+            transition: color 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .menu-button:hover, .active {
+            background-color: #eeeeee;
+            color: #252525;
+            transform: scale(1.1);
+        }
+
+        .menu-button > .icon {
+            font-size: 40px;
+        }
+
+        @media (max-device-width: 700px)  {
+            .elements {
+                font-size: 200%;
+            }
+
+            .menu-button {
+                width: 70px;
+                height: 50px;
+                padding: 15px 0 0 0;
+            }
+        }
+
+        @-webkit-keyframes hue {
+            from {
+                -webkit-filter: hue-rotate(0deg);
+            }
+
+            to {
+                -webkit-filter: hue-rotate(-360deg);
+            }
+        }
+    </style>
+<style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
+<body>
+<div class="hero">
+
+
+    <div class="container">
+        <div class="centered animated fadeIn" id="menu">
+            <!--p class="title large-text">LiThor Studios</p-->
+            <div class="elements">
+                <div class="element">
+                    <div class="number">3</div>
+                    Li
+                </div><div class="element">
+                <div class="number">90</div>
+                Th
+            </div><div class="animated slideInRight element" style="display: inline-block">or Studios</div>
+            </div>
+            <div class="icons animated zoomIn">
+                <a class="menu-button" href="#about" data-page="about">
+                    <i class="icon icon-social-github"></i>
+                </a>
+                <a class="menu-button" href="#">
+                    <i class="icon icon-social-steam"></i>
+                </a>
+                <a class="menu-button" href="#">
+                    <i class="icon icon-social-soundcloud"></i>
+                </a>
+                <a class="menu-button" href="#">
+                    <i class="icon icon-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="content" id="about">
+            <h1 class="coloured">This is a test title to be used</h1>
+            <p>
+               I saw them eeeeaasssttsss
+            </p>
+            <p>
+                <img src="Title_files/_dancing_bannana.gif">
+            </p>
+        </div>
+
+
+    </div>
+</div>
+<script src="Title_files/jquery.js"></script>
+<script>
+    function showPage(page) {
+        $(".elements").css({
+            "transform": "rotate(-90deg) scale(0.5)",
+            "font-size": "500%",
+            //"float": "left",
+            "white-space": "nowrap",
+            "margin-top": "250px"
+        });
+        $("#menu").css({
+            "width": "100px",
+            "height": "100%",
+            "left": "0",
+            "transform": ""
+        }).removeClass("centered");
+        $(".icons").animate({
+            "position": "absolute",
+            "bottom": "0"
+        });
+        $(".menu-button").css({
+            "width": "90px",
+            "height": "65px",
+            "padding": "25px 0 0 0"
+        });
+        $(".content").hide();
+        $("#" + page).fadeIn();
+        $(".menu-button").removeClass("active");
+        $("a[data-page=" + page + "]").addClass("active");
+        $("body").animate({
+            "scrollTop": 0
+        }, 500);
+    }
+
+    $(".menu-button").click(function () {
+        showPage($(this).data("page"));
+    });
+
+    $(document).ready(function () {
+        if(location.hash.length > 0) {
+            showPage(location.hash.substring(1))
+        }
+    })
+</script>
+
+</body></html>
