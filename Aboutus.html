@@ -1,4 +1,3 @@
-
 <!--
 
 
@@ -22,7 +21,8 @@ canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
 }
-</style>
+
+    </style>
 </head>
 <body onload="startGame()">
 <script>
@@ -33,7 +33,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(50, 30, "red", 10, 120);
-    myGamePiece.gravity = 0.981;
+    myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
@@ -69,8 +69,8 @@ function component(width, height, color, x, y, type) {
     this.speedY = 0;
     this.x = x;
     this.y = y;
-    this.gravity = 0.981;
-    this.gravitySpeed = 0.981;
+     this.gravity = 0;
+    this.gravitySpeed = 0;
     this.update = function() {
         ctx = myGameArea.context;
         if (this.type == "text") {
@@ -146,6 +146,7 @@ function updateGameArea() {
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
+    console.log(myGamePiece.gravity.toString());
 }
 
 function everyinterval(n) {
@@ -155,27 +156,38 @@ function everyinterval(n) {
 
 //This works by always being updated by the gameframe and causing the box to go donw
 
-document.body.onkeyup = function(e){
+
+document.body.onkeydown = function(e){
     if (e.keyCode == 32|| e.key ===' '){
-        let acc_bar = true;
-        alert("Something complained");
-    }
+         myGamePiece.gravity = -0.25;
+     }
+    console.log(myGamePiece.gravity.toString());
 }
+
+document.body.onkeyup = function(up){
+    if (up.keyCode == 32|| up.key ===' '){
+        myGamePiece.gravity =0.25;
+    }
+
+}
+
+
+
 
 
 
 function accelerate(n) {
-    var local_acc = 0.6;
-    if (acc_bar == true){
-        myGamePiece.gravity = local_acc;
-    }else{
-    myGamePiece.gravity = n;
-    }
+    var val = 0;
+
+
+    //myGamePiece.gravity = n;
+
 }
+
 </script>
 <br>
-<button onmousedown="accelerate(-0.981)" onmouseup="accelerate(0.55)">ACCELERATE</button>
-<p>Use the ACCELERATE button to stay in the air</p>
+<!--<button onmousedown="accelerate(-0)" onmouseup="accelerate(0)">ACCELERATE</button>-->
+<p>Press the spacebar to float along the corridors!</p>
 <p>How long can you stay alive?</p>
 </body>
 </html>
