@@ -140,7 +140,19 @@
 
     }
 
+    .back_train{
+      width:10%;
+        height:auto;
+        margin: -7px;
 
+    }
+    .front_train{
+        width:10%;
+        height:auto;
+        margin: -7px -4px;
+        transform: rotateY(180deg);
+
+    }
 
 
 
@@ -156,13 +168,48 @@
             window.location.pathname = "Aboutus.html";
          }
 
+        var imgObj = null;
+        var animate ;
+
+        function init() {
+           imgObj = document.getElementById('myImage');
+           imgObj.style.position= 'relative';
+           imgObj.style.left = '0px';
+
+           imgObj2 = document.getElementById('myImage2');
+           imgObj2.style.position= 'relative';
+           imgObj2.style.left = '0px';
+
+        }
+
+        function moveRight() {
+           imgObj.style.left = parseInt(imgObj.style.left) + 5 + 'px';
+           imgObj2.style.left = parseInt(imgObj2.style.left) + 5 + 'px';
+           animate = setTimeout(moveRight,20);    // call moveRight in 20msec
+           var rect = imgObj.getBoundingClientRect();
+           if (rect.right > 1920){
+
+           //This is really ugly
+                imgObj.style.left = parseInt(imgObj.style.left) + -2000 + 'px';
+                imgObj2.style.left = parseInt(imgObj2.style.left) + -2000 + 'px';
+           }
+
+        }
+
+        function stop() {
+               clearTimeout(animate);
+               imgObj.style.left = '0px';
+         }
+
+        window.onload = init;
 
 
     </script>
 
 
+
 </head>
-<body>
+<body >
 
 
 <!-- The main window that is used to show the title screen for the website -->
@@ -248,6 +295,19 @@
     <!--
     <button onclick = "reload_funt()">Reload page</button>
     -->
+
+
+    <form >
+        <div  onload ="moveRight();">
+        <p>Click button below to move the image to right</p>
+        <input type = "button" value = "Click Me" onclick = "moveRight();" />
+        <img id = "myImage" class="back_train" src = "Images/Train.png" />
+        <img id = "myImage2" class="front_train" src = "Images/Train.png"/>
+
+    </div>
+
+
+    </form>
     <div class="mysquare"></div>
 
     <footer style="text-align:center">
@@ -262,9 +322,7 @@
 </body>
 
 
-<!-- Dependencies -->
-<link href="Title_files/Main.css" rel="mySlides fade">
-<script src="Title_files/Otsu.js"></script>
+
 
 </html>
 

@@ -32,7 +32,7 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(50, 30, "red", 10, 120);
+    myGamePiece = new component(50, 30, "blue", 10, 120);
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
@@ -87,7 +87,17 @@ function component(width, height, color, x, y, type) {
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
         this.hitBottom();
+        this.hitTop();
     }
+    this.hitTop = function(){
+        var top = myGameArea.canvas.height;
+        if (this.y >= top ){
+            this.y = top;
+            this.gravitySpeed = 0;
+        }
+
+    }
+
     this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
@@ -174,7 +184,13 @@ document.body.onkeyup = function(up){
 
 
 
+function restart_game(){
 
+    myGamePiece = undefined;
+    myObstacles = [];
+    myScore;
+    startGame();
+}
 
 function accelerate(n) {
     var val = 0;
@@ -184,9 +200,16 @@ function accelerate(n) {
 
 }
 
+function reload_funt() {
+     location.reload();
+}
+
+
 </script>
 <br>
 <!--<button onmousedown="accelerate(-0)" onmouseup="accelerate(0)">ACCELERATE</button>-->
+
+<button onmousedown="reload_funt()">Restart game</button>
 <p>Press the spacebar to float along the corridors!</p>
 <p>How long can you stay alive?</p>
 </body>
