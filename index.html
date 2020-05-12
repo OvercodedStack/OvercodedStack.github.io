@@ -25,7 +25,7 @@
 
     .mysquare{
         height: 18px;
-        width: 1600px;
+        width: auto;
         background-color:#000;
     }
 
@@ -169,43 +169,82 @@
             window.location.pathname = "Aboutus.html";
          }
 
+
+
+        //The code that is used to move the train
         var imgObj = null;
         var animate ;
+        var stopped = false;
+        var target_stop = 600;
 
+        //Initialization and cloning of child objects
         function init() {
            imgObj = document.getElementById('myImage');
            imgObj.style.position= 'relative';
            imgObj.style.left = '0px';
-
            imgObj2 = document.getElementById('myImage2');
            imgObj2.style.position= 'relative';
            imgObj2.style.left = '0px';
            moveRight();
         }
+        //Actual function that moves the objects
+        function moveRight() {
+            //Get my train position
+            var rect = imgObj.getBoundingClientRect();
 
-         function moveRight() {
-           imgObj.style.left = parseInt(imgObj.style.left) + 3 + 'px';
-           imgObj2.style.left = parseInt(imgObj2.style.left) + 3 + 'px';
-           animate = setTimeout(moveRight,20);    // call moveRight in 20msec
-           var rect = imgObj.getBoundingClientRect();
-           if (rect.right > 1920){
-                //This is really ugly
-                imgObj.style.left = parseInt(imgObj.style.left) + -2000 + 'px';
-                imgObj2.style.left = parseInt(imgObj2.style.left) + -2000 + 'px';
-           }else if (rect.right == 400){
-               animate = setTimeout(moveRight,20000);
+
+
+
+
+           //"Real" movement
+           var stop_dist = target_stop - rect.right;
+           stop_dist = Math.abs(stop_dist);
+
+           if (stop_dist < 400){
+               var vel = stop_dist/100;
+               if (vel < 2){
+                    vel = 2;
+               }
+
+               console.log(vel);
+               imgObj.style.left = parseInt(imgObj.style.left) + vel + 'px';
+               imgObj2.style.left = parseInt(imgObj2.style.left) + vel + 'px';
+           }else{
+           imgObj.style.left = parseInt(imgObj.style.left) + 4 + 'px';
+           imgObj2.style.left = parseInt(imgObj2.style.left) + 4 + 'px';
            }
 
 
 
+           //If we get off the screen, jump back to the main screen
+           if (rect.right > 1920){
+                //This is really ugly
+                stopped = false;
+                imgObj.style.left = parseInt(imgObj.style.left) + -2400 + 'px';
+                imgObj2.style.left = parseInt(imgObj2.style.left) + -2400 + 'px';
+           }
 
-
+           if (rect.right > target_stop && rect.right < target_stop + 10 && stopped == false){
+               animate = setTimeout(moveRight,5000);
+               stopped = true;
+               //alert("Nani");
+           }
+           else{
+                animate = setTimeout(moveRight,20);    // call moveRight in 20msec
+           }
         }
 
         function stop() {
-               clearTimeout(animate);
-               imgObj.style.left = '0px';
+               //clearTimeout(animate);
+               //imgObj.style.left = '0px';
+               //imgObj2.style.left = '0px';
          }
+
+         function stop_at_point(value){
+               imgObj.style.left = value.toString() + 'px';
+               imgObj2.style.left = value.toString() + 'px';
+         }
+
 
         window.onload = init;
 
@@ -277,12 +316,9 @@
     <header class="w3-container w3-xlarge w3-padding-24">
         <div class="centering_property">
             <h1>The website at the end of the world!</h1>
-            <p>A website created by me to learn more about HTML5 and CSS!</p>
+            <p>A website created by me to learn more about HTML5, Javascript, and CSS!</p>
         </div>
         <div style="align-self: center">
-
-
-
             <p class="centering_text" >
                 Welcome to LiThor Engineering. This website will serve as the host for upcoming
                 projects under self-driven necessity. Hopefully this will serve as a front for
@@ -295,13 +331,9 @@
         </div>
 
     </header>
-
-
-
     <!--
     <button onclick = "reload_funt()">Reload page</button>
     -->
-
 
     <form onload="moveRight()">
         <!--
