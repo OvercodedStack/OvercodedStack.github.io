@@ -9,7 +9,7 @@ function reload_funt() {
     window.location.pathname = "game.html";
   }
  function move_to_index(){
-    window.location.pathname = "Index.html";
+    window.location.pathname = "";
   }
  function move_to_Aboutus(){
     window.location.pathname = "Aboutus.html";
