@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
-
-
-<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
     <title>LiThor Engineering</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <script type= "text/javascript"  src= "Title_files/moving_train.js"></script>
-    <script type= "text/javascript"  src="Title_files/Navigation.js" ></script>
+    
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+   
+<head>
 
+     <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+
+    </style>
 </head>
-<body >
 
-
+<body onload="startGame()">
 <!-- The main window that is used to show the title screen for the website -->
 <div class="Main">
 
@@ -72,45 +77,44 @@
     </div>
 
 
-    <header class="w3-container w3-xlarge w3-padding-24">
+
+    <header class="w3-container w3-xlarge w3-padding-24"  >
+
         <div class="centering_property">
-            <h1>The website at the end of the world!</h1>
-            <p>A website created by me to learn more about HTML5, Javascript, and CSS!</p>
-        </div>
-        <div style="align-self: center">
-            <p class="centering_text" >
-                Welcome to LiThor Engineering. This website will serve as the host for upcoming
-                projects under self-driven necessity. Hopefully this will serve as a front for
-                web-based projects with an external support frame instead of the usual. This
-                website differenciates itself from Kovant by frontlining projects that can't be
-                normally ran on Kovant.
+            <h1 id="CanvasLocation">Game</h1>
 
-                We hope to serve you in the future and please contact me if you have a question.
-                </p>
+            <!--<canvas id="myCanvas" tag="myCanvas" ></canvas>-->
+            <canvas id="a" width="300" height="225"></canvas>
+           
         </div>
+        <div  class="centering_property">
+            <button onmousedown="reload_funt()"  class="btn_2">Restart game</button>
+            <p>Press the spacebar to float along the corridors!</p>
+            <p>How long can you stay alive?</p>
 
+        </div>
+ 
     </header>
     <!--
     <button onclick = "reload_funt()">Reload page</button>
     -->
 
-    <form onload="moveRight()">
-        <!--
-        <p>Click button below to move the image to right</p>
-        <input type = "button" value = "Click Me" onclick = "moveRight();" />-->
-        <img id = "myImage" class="back_train" src = "Images/Train.png" />
-        <img id = "myImage2" class="front_train" src = "Images/Train.png"/>
-
-
-
-    </form>
+     
     <div class="mysquare"></div>
 
     <footer style="text-align:center">
-      <h5> Copyright 2020 - LiThor Studios - LiThor Engineering -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
+        <h5> Copyright 2020 - LiThor Studios - LiThor Engineering -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
 
-  </footer>
+    </footer>
 
-</div>
+
+<br>
+<!--<button onmousedown="accelerate(-0)" onmouseup="accelerate(0)">ACCELERATE</button>-->
+
+    <!-- As you might discover now, getElementByID does not work if you do not put the JS at the bottom of the page-->
+    <script type= "text/javascript" src="Title_files/flappybird.js"></script>
+    <script type= "text/javascript" src="Title_files/Otsu.js"></script>
+    <script type= "text/javascript" src="Title_files/Navigation.js"></script>    
+
 </body>
 </html>
