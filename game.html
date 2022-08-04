@@ -1,81 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
-    <title>LiThor Engineering</title>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
-   
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
+<title>LiThor Engineering</title>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
 <head>
 
-     <style>
-        canvas {
-            border:1px solid #d3d3d3;
-            background-color: #f1f1f1;
-        }
+    <title>Personal Website</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script type= "text/javascript"  src= "Title_files/moving_train.js"></script>
+    <script type= "text/javascript"  src="Title_files/Navigation.js" ></script>
 
-    </style>
+
 </head>
 
 <body onload="startGame()">
 <!-- The main window that is used to show the title screen for the website -->
 <div class="Main">
-
-    <aside>
-
-        <div class="top_bottom_box"></div>
-
-
-    </aside>
-
-    <!--Main logo-->
-    <div class="mySlides fade">
-        <div style="padding-left:55px">
-        <img src="Images/Logo_Mk2_1.png" style="width:500px; height:200px;">
-    </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="centering_property">
-        <div class="mysquare"></div>
-        <button class="btn_2" onclick="move_to_index()">Our Mission</button>
-        <button class="btn_2" onclick="move_to_gallery()">Our Portafolio</button>
-        <button class="btn_2" onclick="move_to_game()">?</button>
-        <button class="btn_2" onclick="move_to_Aboutus()">About Us</button>
-        <button class="btn_2" onclick="move_to_contactUs()">Contact us</button>
-        <div class="mysquare"></div>
-        <div class="dots">
-
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-
-        </div>
-
-
-    </div>
-
+    <header-component css-files="Title_files/general_style.css">
+    </header-component>
 
 
     <header class="w3-container w3-xlarge w3-padding-24"  >
@@ -85,7 +32,7 @@
 
             <!--<canvas id="myCanvas" tag="myCanvas" ></canvas>-->
             <canvas id="a" width="300" height="225"></canvas>
-           
+
         </div>
         <div  class="centering_property">
             <button onmousedown="reload_funt()"  class="btn_2">Restart game</button>
@@ -93,28 +40,28 @@
             <p>How long can you stay alive?</p>
 
         </div>
- 
+
     </header>
-    <!--
-    <button onclick = "reload_funt()">Reload page</button>
-    -->
 
-     
-    <div class="mysquare"></div>
+    <form onload="moveRight()">
+        <img id = "myImage" class="back_train" src = "Images/TrainTransparent.png" />
+        <img id = "trainCar1" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar2" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar3" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "myImage2" class="front_train" src = "Images/TrainTransparent.png"/>
+    </form>
 
-    <footer style="text-align:center">
-        <h5> Copyright 2020 - LiThor Studios - LiThor Engineering -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
-
-    </footer>
+    <footer-component css-files="Title_files/general_style.css">
+    </footer-component>
 
 
-<br>
-<!--<button onmousedown="accelerate(-0)" onmouseup="accelerate(0)">ACCELERATE</button>-->
+    <br>
+    <!--<button onmousedown="accelerate(-0)" onmouseup="accelerate(0)">ACCELERATE</button>-->
 
     <!-- As you might discover now, getElementByID does not work if you do not put the JS at the bottom of the page-->
     <script type= "text/javascript" src="Title_files/flappybird.js"></script>
-    <script type= "text/javascript" src="Title_files/Otsu.js"></script>
-    <script type= "text/javascript" src="Title_files/Navigation.js"></script>    
-
+<!--    <script type= "text/javascript" src="Title_files/Otsu.js"></script>-->
+<!--    <script type= "text/javascript" src="Title_files/Navigation.js"></script>-->
+</div>
 </body>
 </html>

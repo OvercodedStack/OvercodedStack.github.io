@@ -1,94 +1,66 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
+
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
-<title>LiThor Engineering</title>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1" name="viewport">
-<script type= "text/javascript"  src="Title_files/Navigation.js" ></script>
 
-<body>
+
+<head>
+    <title>Personal Website</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script type= "text/javascript"  src= "Title_files/moving_train.js"></script>
+    <script type= "text/javascript"  src="Title_files/Navigation.js" ></script>
+</head>
+<body >
+<div id="background_gradient"></div>
+
+
 <!-- The main window that is used to show the title screen for the website -->
-<div class="Main">
-
-    <aside>
-
-        <div class="top_bottom_box"></div>
+<div class="Main" >
+    <header-component css-files="Title_files/general_style.css">
 
 
-    </aside>
-
-    <!--Main logo-->
-    <div class="mySlides fade">
-        <div style="padding-left:55px">
-        <img src="Images/Logo_Mk2_1.png" style="width:500px; height:200px;">
-    </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="centering_property">
-        <div class="mysquare"></div>
-        <button class="btn_2" onclick="move_to_index()">Our Mission</button>
-        <button class="btn_2" onclick="move_to_gallery()">Our Portafolio</button>
-        <button class="btn_2" onclick="move_to_game()">?</button>
-        <button class="btn_2" onclick="move_to_Aboutus()">About Us</button>
-        <button class="btn_2" onclick="move_to_contactUs()">Contact us</button>
-        <div class="mysquare"></div>
-        <div class="dots">
-
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-
-        </div>
-
-
-    </div>
-
-
+    </header-component>
 
     <header class="w3-container w3-xlarge w3-padding-24">
         <div class="centering_property">
-            <h1>Contact us</h1>
-        </div>
-        <div >
-            <p>
-                This page is under construction. However you can contact me through Kovant as that has a 
-                contact me page at the present moment.
+            <h1>
+                Contact Information
+            </h1>
+            <h3>
 
-            </p>
-               
+
+            </h3>
+
         </div>
- 
+        <div style="align-self: center; margin-top: 25px; ">
+            <div style="text-align: center;">
+                <a href="http://www.linkedin.com/in/esteban-segarra-m">
+                    <img src="Images/Misc/LinkedInLg.png" alt="HTML tutorial" style="width:auto;height:auto;">
+                </a>
+<!--                <img src="Images/Misc/LinkedInLg.png" onclick="move_to_linkedin()" style="width:auto; height:auto; ">-->
+
+            </div>
+
+        </div>
+
     </header>
-    <!--
-    <button onclick = "reload_funt()">Reload page</button>
-    -->
 
-     
-    <div class="mysquare"></div>
-    <footer style="text-align:center">
-        <h5> Copyright 2020 - LiThor Studios - LiThor Engineering -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
+    <div style="margin: 155px 155px"></div>
 
-    </footer>
+    <form onload="moveRight()">
+        <img id = "myImage" class="back_train" src = "Images/TrainTransparent.png" />
+        <img id = "trainCar1" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar2" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar3" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "myImage2" class="front_train" src = "Images/TrainTransparent.png"/>
+    </form>
 
+    <footer-component css-files="Title_files/general_style.css">
+    </footer-component>
+
+</div>
 </body>
 </html>
+

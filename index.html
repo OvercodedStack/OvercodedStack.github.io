@@ -6,7 +6,7 @@
 
 
 <head>
-    <title>LiThor Engineering</title>
+    <title>Personal Website</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script type= "text/javascript"  src= "Title_files/moving_train.js"></script>
@@ -15,101 +15,95 @@
 </head>
 <body >
 
+<div id="background_gradient"></div>
 
 <!-- The main window that is used to show the title screen for the website -->
-<div class="Main">
-
-    <aside>
-
-        <div class="top_bottom_box"></div>
+<div class="Main" >
+    <header-component css-files="Title_files/general_style.css">
 
 
-    </aside>
-
-    <!--Main logo-->
-    <div class="mySlides fade">
-        <div style="padding-left:55px">
-        <img src="Images/Logo_Mk2_1.png" style="width:500px; height:200px;">
-    </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="centering_property">
-        <div class="mysquare"></div>
-        <button class="btn_2" onclick="move_to_index()">Our Mission</button>
-        <button class="btn_2" onclick="move_to_gallery()">Our Portafolio</button>
-        <button class="btn_2" onclick="move_to_game()">?</button>
-        <button class="btn_2" onclick="move_to_Aboutus()">About Us</button>
-        <button class="btn_2" onclick="move_to_contactUs()">Contact us</button>
-        <div class="mysquare"></div>
-        <div class="dots">
-
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-            <div class="dot_2"></div>
-
-        </div>
-
-
-    </div>
-
+    </header-component>
 
     <header class="w3-container w3-xlarge w3-padding-24">
         <div class="centering_property">
-            <h1>The website at the end of the world!</h1>
-            <p>A website created by me to learn more about HTML5, Javascript, and CSS!</p>
-        </div>
-        <div style="align-self: center">
-            <p class="centering_text" >
-                Welcome to LiThor Engineering. This website will serve as the host for upcoming
-                projects under self-driven necessity. Hopefully this will serve as a front for
-                web-based projects with an external support frame instead of the usual. This
-                website differenciates itself from Kovant by frontlining projects that can't be
-                normally ran on Kovant.
+            <h1>
+                Graduate Candidate PhD Student at UCF
+            </h1>
+            <h3>
+            Concentrated on discovering applications of  Virtual Reality, Mixed Reality, Augmented Reality, and Machine Learning
+            </h3>
 
-                We hope to serve you in the future and please contact me if you have a question.
-                </p>
+<!--            <h1>The website at the end of the world!</h1>-->
+<!--            <p>A website created by me to learn more about HTML5, Javascript, and CSS!</p>-->
+        </div>
+        <div style="align-self: center; margin-top: -25px; margin-bottom: -25px">
+            <div style="text-align: center;">
+                <img src="Images/XRT_Logo.png" style="width:auto; height:130px; ">
+            </div>
+
+            <h4 class="centering_property"> Current Ventures</h4>
+
+            <p class="centering_text" >
+                I am currently working at the XRT Laboratory under guidance of Ryan McMahan currently working with
+                providing a streamlined technique for rendering and presenting data from a point cloud. In relation with this
+                project I have authored RecolorCloud as a side tool to labelCloud for
+            </p>
+
+            <h4 class="centering_property"> Research and Background</h4>
+            <p class="centering_text" >
+<!--               <br style="margin-bottom: 5px">-->
+                While my background largely is composed of HCI topics such as Virtual Reality, Mixed Reality, and Augmented
+                Reality, I have a diversified set of skills in tackling multiple problems such as complex systems in
+                robotics, computer vision, and machine learning integration.
+            </p>
+
+            <h4 class="centering_property"> Hobbies and Other Misc.</h4>
+
+            <p class="centering_text" >
+                Aside from general work involving my research and studies I also do side hobbies such as gaming, 3D modeling,
+                AI art, and other art forms. Generally I tend to keep my art separate from my work, however there are multiple
+                times where my work crosses over to the other from time to time. I also attempt whenever there are spare resources
+                and time to try to learn new concepts in application of software and hardware.
+
+
+            </p>
+
+
+            <!--                Welcome to LiThor Engineering. This website will serve as the host for upcoming-->
+<!--                projects under self-driven necessity. Hopefully this will serve as a front for-->
+<!--                web-based projects with an external support frame instead of the usual. This-->
+<!--                website differenciates itself from Kovant by frontlining projects that can't be-->
+<!--                normally ran on Kovant.-->
+
+<!--                We hope to serve you in the future and please contact me if you have a question.-->
+
+
         </div>
 
     </header>
     <!--
     <button onclick = "reload_funt()">Reload page</button>
     -->
-
+    <div style="margin: 55px 55px"></div>
     <form onload="moveRight()">
         <!--
         <p>Click button below to move the image to right</p>
         <input type = "button" value = "Click Me" onclick = "moveRight();" />-->
-        <img id = "myImage" class="back_train" src = "Images/Train.png" />
-        <img id = "myImage2" class="front_train" src = "Images/Train.png"/>
-
-
-
+        <img id = "myImage" class="back_train" src = "Images/TrainTransparent.png" />
+        <img id = "trainCar1" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar2" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "trainCar3" class="front_train" src = "Images/TrainTransparentCar.png"/>
+        <img id = "myImage2" class="front_train" src = "Images/TrainTransparent.png"/>
     </form>
-    <div class="mysquare"></div>
 
-    <footer style="text-align:center">
-      <h5> Copyright 2020 - LiThor Studios - LiThor Engineering -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
 
-  </footer>
+
+    <footer-component css-files="Title_files/general_style.css">
+    </footer-component>
+
+
+
+
 
 </div>
 </body>

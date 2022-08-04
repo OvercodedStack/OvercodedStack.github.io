@@ -1,11 +1,14 @@
 body {
-    margin: 100;
+    /*margin: 100px;*/
     width: 100%;
     font-family: "Raleway",Arial, sans-serif;
     background-size: cover;
     height: 10%;
     color: #000;
     overflow-x: hidden;
+    /*background-color: #F9F9EE;*/
+    background-color: #F9F9EE; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #E2EAF6 , #F9F9EE);
 }
 .Image src {margin-bottom: 6px}
 
@@ -17,10 +20,18 @@ body {
 }
 
 .mysquare{
-    height: 18px;
+    height: 10px;
+    width: auto;
+    background-color:#000;
+    margin: 6px 5px;
+}
+
+.rail{
+    height: 10px;
     width: auto;
     background-color:#000;
 }
+
 
 .dot_2{
   margin: 120;
@@ -33,16 +44,17 @@ body {
 }
 
 .btn_2 {
-  background-color: #000;
-  font-family: "Raleway",Arial, sans-serif;
-  border: none;
-  color: white;
-  padding: 9px 48px;
-  text-align: center;
-  font-size: 16px;
-  margin: -3px 0px;
-  opacity: 0.9;
-  transition: 5s;
+    background-color: #000;
+    font-family: "Raleway",Arial, sans-serif;
+    border: none;
+    color: white;
+    padding: 9px 48px;
+    text-align: center;
+    font-size: 16px;
+    margin: -3px 0px;
+    opacity: 0.9;
+    transition: 5s;
+    border-radius: 12px;
 }
 
 
@@ -120,17 +132,17 @@ body {
 .centering_text{
     margin: auto;
     width:600px;
-    padding: 35px  0px;
+    /*padding: 35px  0px;*/
 
     text-align:justify;
 }
 .top_bottom_box{
     position: fixed;
-    height: 1000px;
+    height: 2560px;
     width: 50px;
     background-color:#000;
     display: inline-block;
-    margin: -2px -8px;
+    margin: -20px -20px;
 
 }
 
@@ -148,4 +160,15 @@ body {
 
 }
 
+.spacer{
+    margin-bottom:35px;
 
+}
+
+.background_gradient{
+    height: 1000px;
+    background-color: #F9F9EE; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom, #FFFF00 , #F5FBFF);
+}
+
+/*F9F9EE*/
