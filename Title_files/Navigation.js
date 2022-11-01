@@ -20,6 +20,17 @@ function move_to_contact_us(){
     window.location.pathname = "Contactus.html";
 }
 
+function toggle_visibility_CV()
+{
+    var x = document.getElementById("CV_Window");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
 
 
 //Testing for reusable code.
@@ -46,7 +57,7 @@ headerTemplate.innerHTML = `
     <div class="mySlides fade">
         <div style="padding-left:17px">
 <!--        <img src="Images/Logo_Mk2_1.png" style="width:500px; height:200px;">-->
-            <img src="Images/Legacy Website Assets/New_Logo.png" style="width:825px; height:130px;">
+            <img src="Images/Legacy Website Assets/Logo_2.png" style="width:auto; height:130px;">
         </div>
     </div>
 
@@ -104,7 +115,7 @@ footerTemplate.innerHTML = `
 <div>
 <div class="rail"></div>-->
 <footer style="text-align:center">
-  <h5> Copyright 2022 - Esteban Segarra -<a href="https://kovant.wordpress.com">Kovant</a> </h5>
+  <h5> Copyright 2022 - Esteban Segarra -<a href="https://kovant.wordpress.com">Alternate Website Kovant</a> </h5>
 </footer>
 </div>
 `
