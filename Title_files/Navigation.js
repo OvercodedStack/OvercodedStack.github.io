@@ -67,6 +67,7 @@ headerTemplate.innerHTML = `
         <button class="btn_2" onclick="move_to_index()">Home</button>
         <button class="btn_2" onclick="move_to_projects()">Projects</button>
         <button class="btn_2" onclick="move_to_contact_us()">Contact Details</button>
+<!--        LOL-->
 <!--        <button class="btn_2" onclick="move_to_downloads()">Downloads</button>-->
 <!--        <button class="btn_2" onclick="move_to_game()">Random Games</button>-->
         <div class="mysquare"></div>
