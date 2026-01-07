@@ -167,8 +167,8 @@ body {
 
 .background_gradient{
     height: 1000px;
-    background-color: #F9F9EE; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to bottom, #FFFF00 , #F5FBFF);
+    background-color: #e3f2ff; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom, #ffff7c , #ebebeb);
 }
 
 /*F9F9EE*/
