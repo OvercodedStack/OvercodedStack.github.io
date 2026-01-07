@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
     /*background-color: #F9F9EE;*/
     background-color: #F9F9EE; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, #f0fefa , #ffffff);
+    background-image: linear-gradient(to right, #fffec2 , #fed5ff);
 }
 .Image src {margin-bottom: 6px}
 
@@ -169,6 +169,22 @@ body {
     height: 1000px;
     background-color: #e3f2ff; /* For browsers that do not support gradients */
     background-image: linear-gradient(to bottom, #ffff7c , #ebebeb);
+}
+
+
+.bar {
+  position: relative;
+  padding-left: 16px;
+}
+
+.bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: black;
 }
 
 /*F9F9EE*/
