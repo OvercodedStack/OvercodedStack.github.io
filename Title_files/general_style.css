@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
     /*background-color: #F9F9EE;*/
     background-color: #F9F9EE; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, #fffec2 , #fed5ff);
+    background-image: linear-gradient(to right, #ededed , #e6e6e6);
 }
 .Image src {margin-bottom: 6px}
 
