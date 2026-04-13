@@ -1,427 +1,942 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="Title_files/general_style.css">
-
-
 <head>
-    <title>Personal Website</title>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <script type= "text/javascript"  src= "Title_files/moving_train.js"></script>
-    <script type= "text/javascript"  src="Title_files/Navigation.js" ></script>
-    <link rel="icon" type="image/x-icon" href="/images/Logo_Icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Aero Glass Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8c95ba 0%, #92a5f9 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /></filter></defs><rect width="1200" height="600" fill="%23667eea" filter="url(%23noise)" opacity="0.1"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Bar - Glass Morphism */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            flex-wrap: wrap;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav button {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 25px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+        }
+
+        nav button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav button.active {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Content Area - Glass Morphism */
+        .content-area {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            flex: 1;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        /* Buttons - Modern Flat with Glass */
+        .btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-title {
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Feature List */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .logo {
+            max-width: 1000px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            nav {
+                gap: 5px;
+                padding: 5px;
+            }
+
+            nav button {
+                min-width: 80px;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .content-area {
+                padding: 25px;
+                max-height: calc(100vh - 180px);
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body >
+<body>
+    <div class="logo-section">
+        <img src="Website-Personal/Images/Logo_2.png" alt="Logo" class="logo">
+    </div>
 
-<div id="background_gradient"></div>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <button class="nav-btn active" onclick="switchTab(event, 'home')">Home</button>
+            <button class="nav-btn" onclick="switchTab(event, 'gallery')">Gallery</button>
+            <button class="nav-btn" onclick="switchTab(event, 'about')">About me</button>
+            <button class="nav-btn" onclick="switchTab(event, 'projects')">Project Descriptions</button>
+            <!-- <button class="nav-btn" onclick="switchTab(event, '3DShowcase')">3D Showcase</button> -->
+            <button class="nav-btn" onclick="switchTab(event, 'publications')">Publications</button>
+        </nav>
 
-<!-- The main window that is used to show the title screen for the website -->
-<div class="Main" >
-    <header-component css-files="Title_files/general_style.css">
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <h1>Portfolio Summary</h1>
+                <p>Hello there! I am Esteban Segarra Martinez, a PhD Graduate in Computer Science with a 
+                    focus on Robot Vision, Simulateneous Localization and Mapping(SLAM), and tooling for
+                    evaluating SLAM, Virtual Reality (VR), and fixing point clouds!</p>
 
+                <p>
+                    This portfolio website is a showcase of my work, projects, and achievements in the field of computer science and robotics. It features a modern design aesthetic with a focus on clean, responsive layouts and engaging content. Explore the different sections to learn more about my background, skills, and the projects I've worked on.
 
-    </header-component>
-
-    <header class="w3-container w3-xlarge w3-padding-24">
-        <div class="centering_property">
-            <h1>
-                PhD Esteban Segarra Martinez
-            </h1>
-            <p class="centering_text" >
-            <h3>
-            Concentration in Virtual Reality (VR), Augmented Reality (AR), Robotics, Computer Vision, and Machine Learning
-            </h3>
-            </p>
-
-<!--            <h1>The website at the end of the world!</h1>-->
-<!--            <p>A website created by me to learn more about HTML5, Javascript, and CSS!</p>-->
-        </div>
-        <div style="align-self: center; margin-top: -25px; margin-bottom: -25px">
-            <div style="text-align: center;">
-                <img src="Images/XRT_Logo.png" style="width:auto; height:130px; ">
-            </div>
-
-        </div >
-
-        <div class="centering_property">
-            <button class="btn_2" onclick="toggle_visibility_CV()">Open CV</button>
-        </div>
-
-        <div class="centering_property" id="CV_Window" style="display: none">
-
-            <iframe src="/PDFs/RESUME.pdf" width="50%" height="500px" class="centering_property">
-            </iframe>
-        </div>
-
-        <div style="align-self: center; margin-top: -25px;">
-
-
-
-            <li></li>
-            <h4 class="centering_property"> Current Ventures</h4>
-            <!-- <div class = "bar"> -->
-            
-            <div class="centering_text" >
-                <!-- <p class="bar"> -->
-                <div class="bar">
-                <!-- <p class="centering_text" > -->
-                I am a Computer Science PhD graduate from the University of Central Florida. I gratudated under the supervision of of my advisors,
-                Dr. Annie Wu andDr. Ryan McMahan. I completed my dissertation defense under my committee members Dr. Annie Wu, Dr. Ryan McMahan,
-                Dr. Lori Walters, and Dr. Charlie Hughes. My dissertation work focused on examining the systematic evaluation of performance of SLAM 
-                under different synthetic environments. The key goal of my research was to determine specific environment factors that can affect the performance of SLAM algorithms.
-                My research has spanned multiple fields such as computer vision, robotics, and XR development but has primiarily focused on robot vision for my dissertation. 
-                <p></p>
-            <!-- </p> -->
-                <!-- </p> -->
-                </div>
-            </div>
-            <!-- </div> -->
-            <div class="centering_text" >
-                <div class="bar">
-                I have multiple academic projects over the years. These have included the CLOVR data collection tool for SteamVR applications, RecolorCloud point cloud editor plugin suite,
-                FinalCloud point cloud editing and recolorer tool, Mixed reality project - Gesture recording studio, Neural network for comparing genetic algorithms in imputed data, Immersive final demo for VR class,
-                and multiple VR and AR projects during my undergraduate and graduate career. During my undergraduate career I also worked on robotics projects such as developing drivers for haptic devices (Manus VR 2018),
-                implementing the MS Hololens for autonomous behavior for a Pioneer robot (2017 - 2018), and an Android app for collecting user input and recording average densities for UI presses (2019). 
-                </div>
-                <p></p>
-            </div>
-            
-            <div class="centering_text" >
-                <div class="bar">
-                    Additionally I have done final projects with computer vision and machine learning applications such as developing a notebook script forking DeepGRU by Mehran Maghoumi to locate
-                similar strands of genomes through tokenizing individual chromosomes and determining similar patterns (2021).
-            </div>
-                <p></p>
-            </div>
-                <!-- I am currently working at the XRT Laboratory under guidance of Ryan McMahan. While my current work deals with point clouds
-                and related state-of-the-art fields, I consider my primary field to be in <b>Computer Graphics, Computer Vision, AI, and XR development</b>. 
-                Currently I am working on finalizing my dissertation work, this work is being developed in a multitude of platforms, which includes robotics,
-                computer vision, and practical applications of point clouds. 
-
-                I used to develop a tool point cloud editing suite, FinalCloud, developed in Unity and Python, however this is postponed until further notice. 
-                I have experience in a multitude of fields such as computer vision, computer architecture, and gaming applications such as virtual reality and augmented reality. -->
-
-            
-
-
-            <h4 class="centering_property"> News </h4>
-            <p class="centering_text" >
-                <ul class="centering_text">
-                    <li class="centering_text"> 13 December, 2025 -  I graduated with my PhD</li>
-                    <li class="centering_text"> 7 November, 2025 -  I successfully defended my dissertation!</li>
-                    <li class="centering_text"> January 2025 - CUI Submission accepted through Mykola Maslych's submission.</li>
-                    <li class="centering_text"> 15 July, 2024 -  Collaboration paper accepted with Mykola Maslych!</li>
-                    <li class="centering_text"> 15 July, 2024 -  Collaboration paper accepted with Amirpouya Ghasemaghaei!</li>
-                    <li class="centering_text"> 16 March, 2024 -  Co-hosted a Workshop at IEEE VR  2024!</li>
-                    <li class="centering_text"> 31 December, 2023 -  Awarded CAHSI Honor!</li>
-                    <li class="centering_text"> 31 October, 2022 -  Happy Halloween!</li>
-                </ul>
-            </p>
-
-
-            <h4 class="centering_property"> Publications</h4>
-
-            <div class="centering_text">
-                <div class="bar" >
-                    Lori C. Walters, Robert A. Michlowitz, <b>Esteban Segarra Martinez</b>, Ryan P. McMahan and Joesph T. Kider, "MemoryScan Environments: Creating Large-Scale Memory-Evocative Digital Twins," 2023 IEEE 3rd International Conference on Digital Twins and Parallel Intelligence (DTPI), Orlando, FL, USA, 2023.<a href="https://doi.org/10.1109/DTPI59677.2023.10365482" style="padding: 2px;">https://doi.org/10.1109/DTPI59677.2023.10365482</a>  
-                <!-- <li></li> -->
-                </div>
-            </div>
-
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b>, Stephen V Maldonado, Annie Wu, Ryan P. McMahan, Xinliang Liu, and Blake Oakley. July 2022.  Effects of Imputation Strategy on Genetic Algorithms and Neural Networks on a Binary Classification Problem. ACM GECCO 2022.<a href="https://doi.org/10.1145/3512290.3528863" style="padding: 2px;">https://doi.org/10.1145/3512290.3528863</a> 
+                </p>
                 
-                <!-- <b>Segarra Martinez, E.</b>, Wu, A.S., & McMahan, R P. (2022 March). Research Trends in Virtual Reality
-                Locomotion Techniques. <b>IEEE VR 2022.</b> -->
-                <!-- <li></li> -->
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">📍</div>
+                        <h4>Simultaneous Localization and Mapping</h4>
+                        <p>Integrated together a pipeline for evaluating ORB-SLAM 2 and ORB-SLAM 3 utilizing synthetic data. </p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌐</div>
+                        <h4>Virtual Reality Development</h4>
+                        <p>Created CLOVR to facilitate the capture of live data from a close-sourced VR application. </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🎨</div>
+                        <h4>3D Modeling and Design</h4>
+                        <p>I am very profecient in 3D modeling and design by creating detailed models for various applications.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎮</div>
+                        <h4>Game Development</h4>
+                        <p>I have created VR experiences using Unity for testing and capturing data from a user.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⚙️</div>
+                        <h4>Embeded Systems Integration</h4>
+                        <p>I have worked on integrating embedded systems for facilitating data collection, controlling devices, and in low-level architecture development. </p>
+                    </div>
+
+
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h2>Explore more:</h2>
+                    <p>Explore the navigation tabs above to see different sections of this portfolio website.</p>
+                    <button class="btn btn-primary" onclick="switchTab(null, 'gallery')">View Gallery</button>
+                    <!-- <button class="btn" onclick="alert('Thank you for visiting!')">LinkedIn</button> -->
+                     <button class="btn" onclick="window.open('https://www.linkedin.com/in/esteban-segarra-m/', '_blank')">LinkedIn</button>
                 </div>
             </div>
 
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b>, Annie Wu, Ryan P. McMahan. March 2022. Research Trends in Virtual Reality Locomotion Techniques. IEEE VR 2022. <a href="https://doi.org/10.1109/VR51125.2022.00046" style="padding: 2px;">https://doi.org/10.1109/VR51125.2022.00046</a>
-                <!-- <b>Segarra, E.</b> & Towle Jr., B. (2018 March). Application of an Augmented Reality Device as a Rangefinder and
-                Odometry Source. International Society of Computers and Their Applications. -->
+            <!-- Gallery Tab -->
+            <div id="gallery" class="tab-content">
+                <h1>Gallery</h1>
+                <p>Some sample works with detailed descriptions of the related work.</p>
+                <h2>2026 - Interactive Pen Controller</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/3D Modeling/Pen Blender 1.png', 'Blender Final Concept')">
+                        <img src="Website-Personal/Images/Projects/3D Modeling/Pen Blender 1.png" alt="Ocean">
+                        <div class="gallery-item-title">Blender Final Concept</div>
+                    </div>
+
+                </div> 
+                <h2>2025 - Synthetic Environments for Non-deterministic SLAM Evaluation (SENSE) </h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/SENSE/SENSE_Preview_Image_1.png', 'Preview of the Synthetic Environment in Unity')">
+                        <img src="Website-Personal/Images/Projects/SENSE/SENSE_Preview_Image_1.png" alt="Ocean">
+                        <div class="gallery-item-title">Preview of the Synthetic Environment in Unity</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/SENSE/SENSE_Preview_Image_2.png', 'Preview of the SLAM operating on a Dataset')">
+                        <img src="Website-Personal/Images/Projects/SENSE/SENSE_Preview_Image_2.png" alt="Ocean">
+                        <div class="gallery-item-title">Preview of the SLAM operating on a Dataset</div>
+                    </div>
+
+
+                </div> 
+                <h2>2024 - CLOVR: A Tool for Capturing Data from Closed-Source VR Applications</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/CLOVR/CLOVR_Preview.png', 'CLOVR Preview')">
+                        <img src="Website-Personal/Images/Projects/CLOVR/CLOVR_Preview.png" alt="CLOVR">
+                        <div class="gallery-item-title">Preview of the Synthetic Environment in Unity</div>
+                    </div>
+                </div> 
+                <h2>2022 to 2023 - Point Cloud Processing: FinalCloud and RecolorCloud</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/FinalCloud/FinalCloud.PNG', 'FinalCloud Preview in Unity')">
+                        <img src="Website-Personal/Images/Projects/FinalCloud/FinalCloud.PNG" alt="CLOVR">
+                        <div class="gallery-item-title">Preview of FinalCloud in Unity</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/RecolorCloud/Picture2.jpg', 'Preview of RecolorCloud in Recoloring Trees Red')">
+                        <img src="Website-Personal/Images/Projects/RecolorCloud/Picture2.jpg" alt="CLOVR">
+                        <div class="gallery-item-title">Preview of RecolorCloud in Recoloring Trees Red</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/RecolorCloud/Picture3.png', 'Preview of RecolorCloud in Recoloring Trees Pink')">
+                        <img src="Website-Personal/Images/Projects/RecolorCloud/Picture3.png" alt="CLOVR">
+                        <div class="gallery-item-title">Preview of RecolorCloud in Recoloring Trees Pink</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/RecolorCloud/Picture1.png', 'Preview of RecolorCloud in Unity')">
+                        <img src="Website-Personal/Images/Projects/RecolorCloud/Picture1.png" alt="CLOVR">
+                        <div class="gallery-item-title">Preview of RecolorCloud in Unity</div>
+                    </div>
+                </div>
+                <h2>2019 to 2022 - Masters Graduate Classes and Projects</h2>    
+                <h3>PointCloud Preview Web Project</h3>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Web PointCloud Preview/Picture7.png', '')">
+                        <img src="Website-Personal/Images/Projects/Web PointCloud Preview/Picture7.png" alt="PointCloud Preview">
+                        <div class="gallery-item-title">PointCloud Instructions</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Web PointCloud Preview/Picture8.png', '')">
+                        <img src="Website-Personal/Images/Projects/Web PointCloud Preview/Picture8.png" alt="PointCloud Preview">
+                        <div class="gallery-item-title">PointCloud Preview for Camp Connect </div>
+                    </div>
+                </div>
+
+
+                <h3>AR Project - ARCore with Vuforia project to interact with different elements in virtual space within Unity.</h3>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/AR Project/AR_Project_1.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/AR Project/AR_Project_1.PNG" alt="AR Project">
+                        <div class="gallery-item-title">AR Project Image</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/AR Project/AR_Project_2.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/AR Project/AR_Project_2.PNG" alt="AR Project">
+                        <div class="gallery-item-title">AR Project Image 2</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/AR Project/AR_Project_3.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/AR Project/AR_Project_3.PNG" alt="AR Project">
+                        <div class="gallery-item-title">AR Project Image 3</div>
+                    </div>
+                </div>
+
+                <h3>VR Project</h3>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/VR Project/Picture10.png', '')">
+                        <img src="Website-Personal/Images/Projects/VR Project/Picture10.png" alt="VR Project">
+                        <div class="gallery-item-title">Fruit Ninja Final Project</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/VR Project/Picture12.png', '')">
+                        <img src="Website-Personal/Images/Projects/VR Project/Picture12.png" alt="">
+                        <div class="gallery-item-title">VR Immersive Virtual Experience</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/VR Project/VR Project.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/VR Project/VR Project.PNG" alt="VR Project">
+                        <div class="gallery-item-title">VR Immersive Virtual Experience</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/VR Project/VR PProject_2.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/VR Project/VR Project_2.PNG" alt="VR Project">
+                        <div class="gallery-item-title">VR Immersive Virtual Experience</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/VR Project/VR Project.PNG', '')">
+                        <img src="Website-Personal/Images/Projects/VR Project/VR Project.PNG" alt="VR Project">
+                        <div class="gallery-item-title">VR Immersive Virtual Experience</div>
+                    </div>
+                </div>
+
+
+                <h2>NIST Related Research and Experiences</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/NIST Related/grabbing_manus.webp', '')">
+                        <img src="Website-Personal/Images/Projects/NIST Related/grabbing_manus.webp" alt="NIST Research">
+                        <div class="gallery-item-title">In-game preview of UR5 being controlled virtually.</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/NIST Related/manusvr.jpg', 'ManusVR')">
+                        <img src="Website-Personal/Images/Projects/NIST Related/manusvr.jpg" alt="NIST Research">
+                        <div class="gallery-item-title">ManusVR Hand Controller</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/NIST Related/win_20180802_10_48_06_pro.jpg', '')">
+                        <img src="Website-Personal/Images/Projects/NIST Related/win_20180802_10_48_06_pro.jpg" alt="NIST Research">
+                        <div class="gallery-item-title">Real World UR5 being controlled virtually</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/NIST Related/real_grabbing.webp', '')">
+                        <img src="Website-Personal/Images/Projects/NIST Related/real_grabbing.webp" alt="NIST Research">
+                        <div class="gallery-item-title">Controlling the UR5 using the VR Controller</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/NIST Related/Picture9.jpg', '')">
+                        <img src="Website-Personal/Images/Projects/NIST Related/Picture9.jpg" alt="NIST Research">
+                        <div class="gallery-item-title">Android application for controlling UR5</div>
+                    </div>
+                </div>
+                    
+
+                <h2>2015 to 2019 - Undergraduate Research and Works</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Poly Related/screenshot-from-2019-04-24-04-07-21.webp', '')">
+                        <img src="Website-Personal/Images/Projects/Poly Related/screenshot-from-2019-04-24-04-07-21.webp" alt="">
+                        <div class="gallery-item-title">Preview of the captured Lidar data from the Pioneer robot</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Poly Related/lidar_pioneer.webp', '')">
+                        <img src="Website-Personal/Images/Projects/Poly Related/lidar_pioneer.webp" alt="">
+                        <div class="gallery-item-title">Lidar data from the Pioneer robot</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Poly Related/dsc1080.webp', '')">
+                        <img src="Website-Personal/Images/Projects/Poly Related/dsc1080.webp" alt="">
+                        <div class="gallery-item-title">Real-world operation of the Pioneer robot with AR Headset</div>
+                    </div>
+                    <div class="gallery-item" onclick="openImageViewer('Website-Personal/Images/Projects/Poly Related/dsc1087-1.webp', '')">
+                        <img src="Website-Personal/Images/Projects/Poly Related/dsc1087-1.webp" alt="">
+                        <div class="gallery-item-title">Real-world operation of the Pioneer robot with AR Headset</div>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="gallery"> -->
+                    <!-- <div class="gallery-item" onclick="alert('Image clicked: Mountain Vista')">
+                        <img src="" alt="Mountain">
+                        <div class="gallery-item-title">Mountain Vista</div>
+                    </div>
+                    <div class="gallery-item" onclick="alert('Image clicked: Ocean Waves')">
+                        <img src="" alt="Ocean">
+                        <div class="gallery-item-title">Ocean Waves</div>
+                    </div>
+                    <div class="gallery-item" onclick="alert('Image clicked: Forest Trail')">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop" alt="Forest">
+                        <div class="gallery-item-title">Forest Trail</div>
+                    </div> -->
+                    <!-- <div class="gallery-item" onclick="alert('Image clicked: Sunset Sky')">
+                        <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400&h=300&fit=crop" alt="Sunset">
+                        <div class="gallery-item-title">Sunset Sky</div>
+                    </div>
+                    <div class="gallery-item" onclick="alert('Image clicked: Alpine Peak')">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Alps">
+                        <div class="gallery-item-title">Alpine Peak</div>
+                    </div>
+                    <div class="gallery-item" onclick="alert('Image clicked: Desert Dunes')">
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=300&fit=crop" alt="Desert">
+                        <div class="gallery-item-title">Desert Dunes</div>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+
+            <div id="publications", class="tab-content">
+                <h1>Publications</h1>
+                <!-- <p>A list of my publications with links to the papers and related resources.</p> -->
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                            Lori C. Walters, Robert A. Michlowitz, <b>Esteban Segarra Martinez</b>, Ryan P. McMahan and Joesph T. Kider, "MemoryScan Environments: Creating Large-Scale Memory-Evocative Digital Twins," 2023 IEEE 3rd International Conference on Digital Twins and Parallel Intelligence (DTPI), Orlando, FL, USA, 2023.<a href="https://doi.org/10.1109/DTPI59677.2023.10365482" style="padding: 2px;">https://doi.org/10.1109/DTPI59677.2023.10365482</a>  
+                        <!-- <li></li> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                <div class="centering_text">
+                    <div class="bar" >
+                        <b>Esteban Segarra Martinez</b>, Stephen V Maldonado, Annie Wu, Ryan P. McMahan, Xinliang Liu, and Blake Oakley. July 2022.  Effects of Imputation Strategy on Genetic Algorithms and Neural Networks on a Binary Classification Problem. ACM GECCO 2022.<a href="https://doi.org/10.1145/3512290.3528863" style="padding: 2px;">https://doi.org/10.1145/3512290.3528863</a> 
+                        
+                        <!-- <b>Segarra Martinez, E.</b>, Wu, A.S., & McMahan, R P. (2022 March). Research Trends in Virtual Reality
+                        Locomotion Techniques. <b>IEEE VR 2022.</b> -->
+                        <!-- <li></li> -->
+                        </div>
+                    </div>
+                </div>
                 
+                <div class="card">
+                <div class="centering_text">
+                    <div class="bar" >
+                        <b>Esteban Segarra Martinez</b>, Annie Wu, Ryan P. McMahan. March 2022. Research Trends in Virtual Reality Locomotion Techniques. IEEE VR 2022. <a href="https://doi.org/10.1109/VR51125.2022.00046" style="padding: 2px;">https://doi.org/10.1109/VR51125.2022.00046</a>
+                        <!-- <b>Segarra, E.</b> & Towle Jr., B. (2018 March). Application of an Augmented Reality Device as a Rangefinder and
+                        Odometry Source. International Society of Computers and Their Applications. -->
+                        
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <h4 class="centering_property"> Workshop Papers</h4>
-            
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b>, Ayesha A. Malik, and Ryan P. McMahan. “CLOVR: Collecting and Logging OpenVR Data from SteamVR Applications.” In 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 485–92, 2024.<a href="https://doi.org/10.1109/VRW62533.2024.00095" style="padding: 2px;">https://doi.org/10.1109/VRW62533.2024.00095</a> . 
-            </div>
-            </div>
+                <h1 class="centering_property"> Workshop Papers</h1>
+                 
 
-            <h4 class="centering_property"> Collaboration Publications</h4>
-            
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                Mykola Maslych, Mohammadreza Katebi, Christopher Lee, Yahya Hmaiti, Amirpouya Ghasemaghaei, Christian Pumarada, Janneese Palmer, <b>Esteban Segarra Martinez</b>, Marco Emporio, Warren Snipes, Ryan P McMahan, Joseph J LaViola Jr. 
-                “Mitigating response delays in free-form conversations with LLM-powered intelligent virtual agents.” 
-                In CUI 2025: Proceedings of the 7th ACM Conference on Conversational User Interfaces. 2025.  
-                <a href="https://doi.org/10.1145/3719160.3736636" style="padding: 2px;">https://doi.org/10.1145/3719160.3736636.</a>  
-            </div>
-            </div>
-
-
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                Mykola Maslych, Difeng Yu, Amirpouya Ghasemaghaei, Yahya Hmaiti, <b>Esteban Segarra Martinez</b>, Dominic Simon, Eugene M. Taranta, Joanna Bergström, and Joseph J. LaViola. 
-                "From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications." 
-                In 2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR), pp. 990-999. IEEE, 2024.
-                <a href="https://doi.org/10.1109/ISMAR62088.2024.00115" style="padding: 2px;">https://doi.org/10.1109/ISMAR62088.2024.00115.</a>                    
-            </div>
-            </div>
-
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                Amirpouya Ghasemaghaei, Yahya Hmaiti, Mykola Maslych, <b>Esteban Segarra Martinez</b>, and Joseph J. LaViola. “Throwing in Virtual Reality: Performance and Preferences Across Input Device Configurations.” In 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 897–98, 2024.  
-                <a href="https://doi.org/10.1109/VRW62533.2024.00245" style="padding: 2px;">https://doi.org/10.1109/VRW62533.2024.00245.</a> 
-            </div>
-            </div>
-
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-               Amirpouya Ghasemaghaei, Mykola Maslych, Yahya Hmaiti, Esteban Segarra Martinez, and Joseph J LaViola Jr. “Towards Better Throwing: A Comparison of Performance and Preferences Across Point of Release Mechanics in Virtual Reality,” 2024. 
-               <a href="https://doi.org/10.1145/3670947.3670963" style="padding: 2px;">https://doi.org/10.1145/3670947.3670963.</a> 
-            </div>
-            </div>
-            
-            <h4 class="centering_property"> Archived Publications</h4>
-            
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b> and Ryan P. McMahan. RecolorCloud: A Point Cloud Tool for Recoloring, Segmentation, and Conversion. 2023. Planned for publication. Referenced by collaborators. 
-                <a href="https://doi.org/10.48550/arXiv.2310.12470" style="padding: 2px;">https://doi.org/10.48550/arXiv.2310.12470.</a>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        <b>Esteban Segarra Martinez</b>, Ayesha A. Malik, and Ryan P. McMahan. “CLOVR: Collecting and Logging OpenVR Data from SteamVR Applications.” In 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 485–92, 2024.<a href="https://doi.org/10.1109/VRW62533.2024.00095" style="padding: 2px;">https://doi.org/10.1109/VRW62533.2024.00095</a> . 
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <h1 class="centering_property"> Collaboration Publications</h1>
+                
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        Mykola Maslych, Mohammadreza Katebi, Christopher Lee, Yahya Hmaiti, Amirpouya Ghasemaghaei, Christian Pumarada, Janneese Palmer, <b>Esteban Segarra Martinez</b>, Marco Emporio, Warren Snipes, Ryan P McMahan, Joseph J LaViola Jr. 
+                        “Mitigating response delays in free-form conversations with LLM-powered intelligent virtual agents.” 
+                        In CUI 2025: Proceedings of the 7th ACM Conference on Conversational User Interfaces. 2025.  
+                        <a href="https://doi.org/10.1145/3719160.3736636" style="padding: 2px;">https://doi.org/10.1145/3719160.3736636.</a>  
+                        </div>
+                    </div>
+                </div>
 
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b> and Bradford Towle Jr. March 2018. Application of an Augmented Reality Device as a Rangefinder and Odometry Source. Inter. Society of Computers and Their Applications
-            </div>
-            </div>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        Mykola Maslych, Difeng Yu, Amirpouya Ghasemaghaei, Yahya Hmaiti, <b>Esteban Segarra Martinez</b>, Dominic Simon, Eugene M. Taranta, Joanna Bergström, and Joseph J. LaViola. 
+                        "From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications." 
+                        In 2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR), pp. 990-999. IEEE, 2024.
+                        <a href="https://doi.org/10.1109/ISMAR62088.2024.00115" style="padding: 2px;">https://doi.org/10.1109/ISMAR62088.2024.00115.</a>                    
+                        </div>  
+                    </div>
+                </div>
 
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b> and Bradford Towle Jr.  October 2018. Simulating an Unknown Environment with an Integrated Physical and Virtual Space. 27th Proceedings of the Inter. Conference on Software Engineering and Data Engineering. 
-            </div>
-            </div>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        Amirpouya Ghasemaghaei, Yahya Hmaiti, Mykola Maslych, <b>Esteban Segarra Martinez</b>, and Joseph J. LaViola. “Throwing in Virtual Reality: Performance and Preferences Across Input Device Configurations.” In 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 897–98, 2024.  
+                        <a href="https://doi.org/10.1109/VRW62533.2024.00245" style="padding: 2px;">https://doi.org/10.1109/VRW62533.2024.00245.</a> 
+                        </div>
+                    </div>
+                </div>
 
-            <p></p>
-            <div class="centering_text">
-                <div class="bar" >
-                <b>Esteban Segarra Martinez</b> and Bradford Towle Jr. October 2017. Investigating the Feasibility of using a Microsoft HoloLens as a Robotic Sensor and Odometry Source. 26th Proc. of the Inter. Conf. on Software Engineering and Data Engineering.
-            </div>
-            </div>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        Amirpouya Ghasemaghaei, Mykola Maslych, Yahya Hmaiti, Esteban Segarra Martinez, and Joseph J LaViola Jr. “Towards Better Throwing: A Comparison of Performance and Preferences Across Point of Release Mechanics in Virtual Reality,” 2024. 
+                        <a href="https://doi.org/10.1145/3670947.3670963" style="padding: 2px;">https://doi.org/10.1145/3670947.3670963.</a> 
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="centering_property"> Archived Publications</h1>
+                
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        <b>Esteban Segarra Martinez</b> and Ryan P. McMahan. RecolorCloud: A Point Cloud Tool for Recoloring, Segmentation, and Conversion. 2023. Planned for publication. Referenced by collaborators. 
+                        <a href="https://doi.org/10.48550/arXiv.2310.12470" style="padding: 2px;">https://doi.org/10.48550/arXiv.2310.12470.</a>
+                        </div>
+                    </div>
+                </div>
 
-            <h4 class="centering_property"> Papers Reviewed</h4>
-            <p class="centering_text">
-            <ul class="centering_text">
-                <li class="centering_text"> ISMAR 2025</li>
-                <li class="centering_text"> IEEE VR 2025</li>
-                <li class="centering_text"> CHI 2025</li>
-                <li class="centering_text"> IEEE VR 2024</li>
-                <li class="centering_text"> IEEE ISMAR 2022</li>
-                <li class="centering_text"> Springer Journals Autonomous Systems AURO 2022</li>
-            </ul>
-            </p>
+                <p></p>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        <b>Esteban Segarra Martinez</b> and Bradford Towle Jr. March 2018. Application of an Augmented Reality Device as a Rangefinder and Odometry Source. Inter. Society of Computers and Their Applications
+                        </div>
+                    </div>
+                </div>
 
+                <p></p>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        <b>Esteban Segarra Martinez</b> and Bradford Towle Jr.  October 2018. Simulating an Unknown Environment with an Integrated Physical and Virtual Space. 27th Proceedings of the Inter. Conference on Software Engineering and Data Engineering. 
+                        </div>
+                    </div>
+                </div>
 
+                <p></p>
+                <div class="card">
+                    <div class="centering_text">
+                        <div class="bar" >
+                        <b>Esteban Segarra Martinez</b> and Bradford Towle Jr. October 2017. Investigating the Feasibility of using a Microsoft HoloLens as a Robotic Sensor and Odometry Source. 26th Proc. of the Inter. Conf. on Software Engineering and Data Engineering.
+                        </div>
+                    </div>
+                </div>
 
-            <h4 class="centering_property"> Education</h4>
+                <h1 class="centering_property"> Papers Reviewed</h1>
 
-<!--            <p class="centering_property">-->
-<!--                PhD - University of Central Florida (?)-->
+                <div class="card">
+                    
 
-<!--            </p>-->
-            <!-- Add a small bar tab to the left of the block -->
-
-            <div class="centering_text">
-                <div class="bar">
-                <p>PhD - University of Central Florida (2025)</p>
-                <p>PhD Chairs: Dr. Annie Wu and Dr. Ryan McMahan</p>
-                <p>Dissertation name: Effects of Environmental and Camera Properties on Simultaneous Localization and Mapping
-                </p>
-            </div>
-
-
-            <div class="centering_text">
-                <p class="bar">
-                MS - University of Central Florida (2022)
-                </p>
-            </div>
-
-
-            <div class="centering_text">
-                <p class="bar">
-                BS - Florida Polytechnic University (2019)
-                </p>
-            </div>
-
-            <!-- <p class="centering_property">
-                <p class="centering_text" >
-                PhD - University of Central Florida (2025)
-                </p>
-                <p class="centering_text" >
-                PhD Chairs: Dr. Annie Wu and Dr. Ryan McMahan 
-                </p>
-                <p class="centering_text" >
-                Dissertation name: Effects of Environmental and Camera Properties on Simultaneous Localization and Mapping
-                </p>
-            </p>
-
-            <div class="centering_text">
-                <p class="bar">
-                This paragraph pretends the bar is magic.
-                </p>
-            </div>
-
-
-            <p class="centering_property">
-                <p class="bar">
-                    <p class="centering_text" >
-                    MS - University of Central Florida (2022)
+                    <p class="centering_text">
+                        <ul class="centering_text">
+                            <li class="centering_text"> ISMAR 2025</li>
+                            <li class="centering_text"> IEEE VR 2025</li>
+                            <li class="centering_text"> CHI 2025</li>
+                            <li class="centering_text"> IEEE VR 2024</li>
+                            <li class="centering_text"> IEEE ISMAR 2022</li>
+                            <li class="centering_text"> Springer Journals Autonomous Systems AURO 2022</li>
+                        </ul>
                     </p>
-                </p>
-            </p>
+                
+                </div>
 
-            
-            <p class="centering_property">
-            BS - Florida Polytechnic University (2019)
-            </p> -->
-
-            <h4 class="centering_property"> Research and Background</h4>
-            
-            
-            <div class="centering_text">
-                <p class="bar">
-<!--               <br style="margin-bottom: 5px">-->
-                While my background largely is composed of HCI topics such as Virtual Reality, Mixed Reality, and Augmented
-                Reality, I have a diversified set of skills in tackling multiple problems such as complex systems in
-                robotics, computer vision, and machine learning integration.
-                </p>
+                <!-- Add more publications as needed -->
             </div>
 
-<!--            <p class="centering_text" >-->
+            <!-- About Me Tab -->
+            <div id="about" class="tab-content">
+                <h1>About me</h1>
+                
+                <div class="card">
+                    <h3>Who Am I?</h3>
+                    <p>
+                        Generally a generalist with a focus on exploring integration of features in 3D virtual spaces. 
+                        These can include AI-related problems, virtual reality, embedded systems, or capturing information from
+                        the virtual environment. Always ready to engage with new challenges to learn and explore new technologies. 
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>CV/ Resume Area</h3>
+                    <p>
+                        <div class="centering_property">
+                            <button class="btn_2" onclick="toggle_visibility_CV()">Open CV</button>
+                        </div>
+                        <div class="centering_property" id="CV_Window" style="display: none">
 
-<!--                Projects have spanned between developing drivers for haptic devices (Manus VR 2018), implementing the MS-->
-<!--                Hololens for autonomous behavior for a Pioneer robot (2017 - 2018), an Android app for collecting user input and recording-->
-<!--                average densities for UI presses (2019, developing simulators for multi-agent behavior specialization-->
-<!--                and task management (2019 - 2020), a notebook script forking DeepGRU by Mehran Maghoumi to locate-->
-<!--                similar strands of genomes through tokenizing individual chromosomes and determining similar patterns (2021),-->
-<!--                gesture collection and recaller in Unity (2021- 2022), and more recently FinalCloud on Unity (2022 - ?).-->
-<!--                Predominantly, my research on one instance or another requires the use of Unity as an engine for-->
-<!--                visualization, study, collection, and organization of data. As a result I have approximately 4 - 5 years-->
-<!--                of experience in Unity development for XR and standard projects.-->
+                            <iframe src="PDFs/RESUME.pdf" width="95%" height="500px" class="centering_property">
+                            </iframe>
+                        </div>
+                    </p>
+                </div>
 
-<!--            </p>-->
+                <div class="card">
+                    <h3>Portfolio</h3>
+                    <p>
+                        <div class="centering_property">
+                            <button class="btn_3" onclick="toggle_visibility_PORTFOLIO()">Open Portfolio</button>
+                        </div>
 
-            <h4 class="centering_property"> Projects </h4>
+                        <div class="centering_property" id="PORTFOLIO_Window" style="display: none">
 
-            <p>
-                <ul class="centering_text">
-                    <li class="centering_text"> This website. (<b>2020-> ? - HTML5/JS </b>)</li>
+                            <iframe src="PDFs/PORTFOLIO.pdf" width="95%" height="500px" class="centering_property">
+                            </iframe>
+                        </div>
+                    </p>
+                </div>
 
-                    <li class="centering_text"> CLOVR (Collecting and Logging OpenVR)  (<b>2024 - Unity/ SteamVR</b>)</li>
-                    <li class="centering_text"> RecolorCloud point cloud editor plugin suite  (<b>2023 - Python</b>)</li>
-                    <li class="centering_text"> FinalCloud point cloud editing and recolorer tool (<b>2022 - Unity/Python </b>)</li>
-                    <li class="centering_text"> Mixed reality project - Gesture recording studio (<b>2021 - Unity/Python</b>)</li>
-                    <li class="centering_text"> Neural network for comparing genetic algorithms in imputed data (<b>2021 - Python</b>)</li>
-                    <li class="centering_text"> Immersive final demo for VR class  (<b>2020 - Unity</b>)</li>
-                    <li class="centering_text"> Full time job (<b>2020 - Java/JS/SQL Full Stack Dev.</b>)</li>
-                    <li class="centering_text"> Forked DeepGRU to apply in a bioinfromatics project (<b>2020 - Python</b>)</li>
-                    <li class="centering_text"> Multi-agent task specialization simulation for NSF (<b>2020 - C</b>)</li>
-                    <li class="centering_text"> Android app for recording haptic interaction with app (<b>2019 - Android Unity</b>)</li>
-                    <li class="centering_text"> Drivers for Manus VR using SDK (<b>2018 - ROS/In-house Robotic Framework</b>)</li>
-                    <li class="centering_text"> Drivers and Simulator for Pioneer Robot and Linux Setup (<b>2017 - Unity/ROS</b>)</li>
-                </ul>
+                <div class="card">
+                    <h3>My Skills</h3>
+                    ✓ AI Related Experience: OpenAI, Claude, Llama <br>
+                    ✓ Coding Lanugages: Python, C, C++, C#, JavaScript, HTML5, SQL, <br>
+                    ✓ Programming Utilities: Unity, OpenCV, ROS, Git, Docker<br>
+                    ✓ Programming Other: Networking, interprogram related, game development, data collectiong and analysis <br>
+                    ✓ 3D Modeling Tools: Blender, Maya, 3DSMax, ZBrush<br>
+                    ✓ Specialties: SLAM, VR Development, 3D Modeling, Game Development, Embedded Systems Integration<br>
+                    ✓ Other: 3D printing, photography, video games<br> 
+                </div>
 
-            </p>
+                <div class="card">
+                    <h3>My Education</h3>
+                    <p>✓ PhD from the University of Central Florida</p>
+                    <p>✓ Masters from the University of Central Florida</p>
+                    <p>✓ Bachelors from Florida Polytechnic University</p>
+                </div>
+                <!-- <div class="card">
+                    <h3>My Experience</h3>
+                    <p> </p>
+                </div> -->
 
-            <h4 class="centering_property"> Teaching </h4>
-
-            <p>
-            <ul class="centering_text">
-                <li class="centering_text"> Graduate Teacher Assistant <b>COP3223C: Intro to Programming </b>  (<b>2024 - 2025</b>)</li>
-                <li class="centering_text"> Camp Connect at UCF <b>Visualizing Point Clouds</b> - UCF (<b>2022</b>)</li>
-                <li class="centering_text"> Graduate Teacher Assistant <b>COP3223C Intro to Programming W/C</b>- UCF (<b>2021</b>)</li>
-                <li class="centering_text"> Graduate Teacher Assistant <b>CNT4714 Enterprise Computing</b>- UCF (<b>2020</b>)</li>
-                <li class="centering_text"> Graduate Teacher Grader <b>CGS2545C-01 Database Systems</b>- UCF (<b>2019</b>)</li>
-                <li class="centering_text"> Undergraduate Teacher Assistant <b>Physics, Chemistry, Calculus</b> - Florida Polytechnic University (<b>2017 - 2019</b>)</li>
-            </ul>
-
-            </p>
-
-
-
-
-
-
-            <h4 class="centering_property"> Contact Information</h4>
-
-            <p class="centering_text">
-                <ul class="centering_text">
-                    <li class="centering_text"> UCF Email - esteban.segarra (@) ucf.edu</li>
-                    <li class="centering_text"> LinkedIn -<a href="https://www.linkedin.com/in/esteban-segarra-m/" style="padding: 2px;">https://www.linkedin.com/in/esteban-segarra-m/</a> </li>
-                </ul>
-            </p>
-
-
-
-            <h4 class="centering_property"> Hobbies and Other Misc.</h4>
-
-           <div class="centering_text">
-                <p class="bar">
-                Aside from general work involving my research and studies I also do side hobbies such as gaming, 3D modeling,
-                AI art, and other art forms. Generally I tend to keep my art separate from my work, however there are multiple
-                times where my work crosses over to the other from time to time. I also attempt whenever there are spare resources
-                and time to try to learn new concepts in application of software and hardware.
-            </p>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary">Download CV</button>
+                    <button class="btn" onclick="alert('Contact: hello@example.com')">Contact Me</button>
+                </div>
             </div>
 
+            <!-- Showcase Tab -->
+            <div id="projects" class="tab-content">
+                <h1>Projects I have Worked On</h1>
+                <p>Featured projects and work samples demonstrating design and development capabilities.</p>
+                <div class="card">
+                    <h3> SENSE </h3>
+                    <p>A SLAM Evaluation framework pipeline to create novel datasets with varying image properties.
+                        These can include different image physical property qualities such as image size, field of view, and visual distortions under different types of environments such as indoor, outdoor, and mixed environments. The framework is designed to be flexible and extensible, allowing for the addition of new datasets and evaluation metrics as needed. The goal of SENSE is to provide a comprehensive and standardized way to evaluate SLAM algorithms under a wide range of conditions, ultimately leading to improved performance and robustness in real-world applications.</p>
+                    </p>
+                    <!-- <p>A modern e-commerce website featuring glass morphism design, smooth animations, and responsive layout. Built with HTML5, CSS3, and vanilla JavaScript.</p> -->
+                    <!-- <button class="btn" onclick="window.open('https://www.example.com/project1', '_blank')">View Project</button> -->
+                    
+                    <button class="btn">Project avaliable in the future.</button>
+                    <!-- onclick="window.open('https://www.linkedin.com/in/esteban-segarra-m/', '_blank')">LinkedIn</button> -->
+                </div>
+
+                <div class="card">
+                    <h3>CLOVR</h3>
+                    <p> The goal of CLOVR is to provide a side-running application that can be used to capture VR devices while running a propetary VR application.
+                        CLOVR can capture items such as the position and orientation of VR-connected devices as supported under the OpenVR API. This also allows the 
+                        integration of other custom sensors as supported by OpenVR's framework. Additionally, CLOVR can capture the rendered images from the VR application and save them as video files through OBS integration. CLOVR is designed to be flexible and extensible, allowing for the addition of new features and support for different VR platforms as needed. The goal of CLOVR is to provide a comprehensive and standardized way to capture data from closed-source VR applications, ultimately leading to improved performance and robustness in real-world applications.
+                    </p>
+                    <!-- <p>A sleek mobile application interface with modern design principles. Includes interactive components, smooth transitions, and an intuitive user experience.</p> -->
+                    <!-- <button class="btn">View Project</button> -->
+                    <button class="btn" onclick="window.open('https://github.com/xrtlab/clovr', '_blank')">Source Code</button>
+
+                    <!-- <button class="btn">Design Files</button> -->
+                </div>
+
+                <div class="card">
+                    <h3>RecolorCloud</h3>
+                    <p>The goal of RecolorCloud is to provide an interface to recolor point clouds via 3D bounding boxes to improve their visual qualities. Often there is a difficulty in manually recoloring point clouds as the tooling for these is propietary or in limited capacity. </p>
+                    <button class="btn" onclick="window.open('https://github.com/xrtlab/RecolorCloud', '_blank')">Source Code</button>
+                    <!-- <button class="btn">View Project</button> -->
+                    <!-- <button class="btn">Case Study</button> -->
+                </div>
+
+                <!-- <div class="card">
+                    <h3></h3>
+                    <p></p>
+                    <button class="btn" onclick="window.open('https://github.com/xrtlab/clovr', '_blank')">Source Code</button>
+                     
+                </div>
+
+                <div style="margin-top: 20px; text-align: center;">
+                    <h2>Let's Work Together</h2>
+                    <p>Interested in a project? Let's discuss how I can help bring your vision to life.</p>
+                    <button class="btn" onclick="window.open('https://github.com/xrtlab/clovr', '_blank')">Source Code</button>
+                     
+                </div> -->
+            </div>
         </div>
 
-    </header>
-    <!--
-    <button onclick = "reload_funt()">Reload page</button>
-    -->
-    <div style="margin: 55px 55px"></div>
-    <form onload="moveRight()">
-        <!--
-        <p>Click button below to move the image to right</p>
-        <input type = "button" value = "Click Me" onclick = "moveRight();" />-->
-        <img id = "myImage" class="back_train" src = "Images/TrainTransparent.png" />
-        <img id = "trainCar1" class="front_train" src = "Images/TrainTransparentCar.png"/>
-        <img id = "trainCar2" class="front_train" src = "Images/TrainTransparentCar.png"/>
-        <img id = "trainCar3" class="front_train" src = "Images/TrainTransparentCar.png"/>
-        <img id = "myImage2" class="front_train" src = "Images/TrainTransparent.png"/>
-    </form>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; Vive coded using Claude with content written by hand. Copyright 2026.</p>
+        </footer>
+    </div>
 
+    <script>
+        function switchTab(event, tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
 
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
 
-    <footer-component css-files="Title_files/general_style.css">
-    </footer-component>
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
 
+            // Add active class to clicked button
+            if (event) {
+                event.target.classList.add('active');
+            } else {
+                // If called programmatically, find and activate the button
+                buttons.forEach(button => {
+                    if (button.textContent.toLowerCase().includes(tabName.charAt(0).toUpperCase() + tabName.slice(1)) ||
+                        (tabName === 'about' && button.textContent.includes('About'))) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+        }
 
+        function toggle_visibility_CV() {
+            const cvWindow = document.getElementById('CV_Window');
+            if (cvWindow.style.display === 'none') {
+                cvWindow.style.display = 'block';
+            } else {
+                cvWindow.style.display = 'none';
+            }
+        }
 
+        function toggle_visibility_PORTFOLIO() {
+            const portfolioWindow = document.getElementById('PORTFOLIO_Window');
+            if (portfolioWindow.style.display === 'none') {
+                portfolioWindow.style.display = 'block';
+            } else {
+                portfolioWindow.style.display = 'none';
+            }
+        }
 
-
-</div>
+    </script>
+    <script src="imageViewer.js"></script>
 </body>
 </html>
